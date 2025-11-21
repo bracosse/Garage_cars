@@ -28,13 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
+            BtnEmployee = new Button();
+            button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
+            // 
+            // BtnEmployee
+            // 
+            BtnEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BtnEmployee.BackColor = Color.Turquoise;
+            BtnEmployee.Location = new Point(47, 115);
+            BtnEmployee.Name = "BtnEmployee";
+            BtnEmployee.Size = new Size(199, 166);
+            BtnEmployee.TabIndex = 0;
+            BtnEmployee.Text = "Employee form";
+            BtnEmployee.UseVisualStyleBackColor = false;
+            BtnEmployee.Click += this.BtnEmployee_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(589, 63);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 1;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += this.button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(589, 115);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 2;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += this.button3_Click;
             // 
             // Base
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(BtnEmployee);
             Name = "Base";
             Text = "Base";
             Load += Form1_Load;
@@ -42,5 +80,9 @@
         }
 
         #endregion
+
+        private Button BtnEmployee;
+        private Button button2;
+        private Button button3;
     }
 }
