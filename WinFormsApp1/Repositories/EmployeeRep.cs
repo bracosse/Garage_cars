@@ -22,7 +22,7 @@ namespace WinFormsApp1.Repositories
                 {
                     connection.Open();
 
-                    string SQLQuery = "select * from Employee order by id ASC";
+                    string SQLQuery = "select * from Employee order by EmpId ASC";
                     using(SqlCommand command = new SqlCommand(SQLQuery, connection))
                     {
                         using(SqlDataReader reader = command.ExecuteReader())
@@ -47,7 +47,7 @@ namespace WinFormsApp1.Repositories
             }
             catch(Exception e)
             {
-                MessageBox.Show("error get");
+                MessageBox.Show("error get" + e);
             }
             return employees;
         }
@@ -99,10 +99,10 @@ namespace WinFormsApp1.Repositories
                 using(SqlConnection connection = new SqlConnection(DBConnection))
                 {
                     connection.Open();
-                    string SQLQuery = "INSERT INTO Employee (EmpId, FirstName, LastName, PhoneNumber, Email, Adress, ContractStart, ContractEnd) VALUES (@EmpId, @FirstName, @LastName, @PhoneNumber, @Email, @Adress, @ContractStart, @ContractEnd)";
+                    string SQLQuery = "INSERT INTO Employee (FirstName, LastName, PhoneNumber, Email, Adress, ContractStart, ContractEnd) VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @Adress, @ContractStart, @ContractEnd)";
                     using(SqlCommand command = new SqlCommand(SQLQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@EmpId", emp.EmpId);
+                        //command.Parameters.AddWithValue("@EmpId", emp.EmpId);
                         command.Parameters.AddWithValue("@FirstName", emp.FirstName);
                         command.Parameters.AddWithValue("@LastName", emp.LastName);
                         command.Parameters.AddWithValue("@PhoneNumber", emp.PhoneNumber);
@@ -111,13 +111,12 @@ namespace WinFormsApp1.Repositories
                         command.Parameters.AddWithValue("@ContractStart", emp.ContractStart);
                         command.Parameters.AddWithValue("@ContractEnd", emp.ContractEnd);
 
-                        command.ExecuteNonQuery();
-                    }
+                        emp.EmpId = Convert.ToInt32(command.ExecuteScalar());                    }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error Add");
+                MessageBox.Show("Error Add" + e);
             }
         }
 
@@ -147,7 +146,7 @@ namespace WinFormsApp1.Repositories
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error Add");
+                ;
             }
         }
 
@@ -169,9 +168,9 @@ namespace WinFormsApp1.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine($"Error: {ex}");
+                Console.WriteLine($"Error: {e}");
             }
         }
     }

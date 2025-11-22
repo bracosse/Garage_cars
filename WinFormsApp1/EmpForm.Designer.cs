@@ -62,6 +62,7 @@
             Btnaddemp.TabIndex = 0;
             Btnaddemp.Text = "Add";
             Btnaddemp.UseVisualStyleBackColor = true;
+            Btnaddemp.Click += Btnaddemp_Click;
             // 
             // BtnUpdateemp
             // 
