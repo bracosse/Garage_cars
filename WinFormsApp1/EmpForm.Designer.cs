@@ -42,7 +42,6 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
@@ -50,6 +49,7 @@
             textBox6 = new TextBox();
             StartEmpdateTimePicker = new DateTimePicker();
             EndEmpdateTimePicker = new DateTimePicker();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)DGridEmp).BeginInit();
             SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             BtnUpdateemp.TabIndex = 1;
             BtnUpdateemp.Text = "Update";
             BtnUpdateemp.UseVisualStyleBackColor = true;
+            BtnUpdateemp.Click += BtnUpdateemp_Click;
             // 
             // Btndeleteemp
             // 
@@ -83,6 +84,7 @@
             Btndeleteemp.TabIndex = 2;
             Btndeleteemp.Text = "Delete";
             Btndeleteemp.UseVisualStyleBackColor = true;
+            Btndeleteemp.Click += Btndeleteemp_Click;
             // 
             // Btnback
             // 
@@ -104,6 +106,7 @@
             button5.TabIndex = 4;
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // DGridEmp
             // 
@@ -114,6 +117,7 @@
             DGridEmp.RowHeadersWidth = 51;
             DGridEmp.Size = new Size(887, 251);
             DGridEmp.TabIndex = 5;
+            DGridEmp.CellContentClick += DGridEmp_CellClick;
             // 
             // label1
             // 
@@ -195,14 +199,6 @@
             label8.TabIndex = 13;
             label8.Text = "Contract End";
             // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.Location = new Point(238, 66);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(155, 27);
-            textBox1.TabIndex = 14;
-            // 
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.None;
@@ -259,11 +255,22 @@
             EndEmpdateTimePicker.Size = new Size(250, 27);
             EndEmpdateTimePicker.TabIndex = 23;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(238, 62);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 24;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // EmpForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 561);
+            Controls.Add(DGridEmp);
+            Controls.Add(comboBox1);
             Controls.Add(EndEmpdateTimePicker);
             Controls.Add(StartEmpdateTimePicker);
             Controls.Add(textBox6);
@@ -271,7 +278,6 @@
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -280,7 +286,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(DGridEmp);
             Controls.Add(button5);
             Controls.Add(Btnback);
             Controls.Add(Btndeleteemp);
@@ -310,7 +315,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
@@ -318,5 +322,6 @@
         private TextBox textBox6;
         private DateTimePicker StartEmpdateTimePicker;
         private DateTimePicker EndEmpdateTimePicker;
+        private ComboBox comboBox1;
     }
 }

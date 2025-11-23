@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
 using WinFormsApp1.Models;
 
 namespace WinFormsApp1.Repositories
@@ -11,6 +12,24 @@ namespace WinFormsApp1.Repositories
     internal class EmployeeRep
     {
         private readonly string DBConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=GarageDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+
+
+        public DataTable FillComboboxrep()
+        {
+            using (SqlConnection connection = new SqlConnection(DBConnection))
+            {
+                connection.Open();
+                string query = "SELECT EmpId FROM Employee"; // Only IDs
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
 
         ///get
         public List<Employee> GetEmployee()
@@ -53,7 +72,7 @@ namespace WinFormsApp1.Repositories
         }
         
         /// Search
-        public Employee SearchEmployee(int id) 
+        public Employee? SearchEmployee(int id) 
         {
             try
             {
@@ -63,7 +82,8 @@ namespace WinFormsApp1.Repositories
                     string SqlQuery = "select * from Employee where EmpId=@EmpId";
                     using(SqlCommand command = new SqlCommand(SqlQuery, connection))
                     {
-                        using(SqlDataReader reader = command.ExecuteReader())
+                        command.Parameters.AddWithValue("@EmpId", id);
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
@@ -111,7 +131,8 @@ namespace WinFormsApp1.Repositories
                         command.Parameters.AddWithValue("@ContractStart", emp.ContractStart);
                         command.Parameters.AddWithValue("@ContractEnd", emp.ContractEnd);
 
-                        emp.EmpId = Convert.ToInt32(command.ExecuteScalar());                    }
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception e)
@@ -128,7 +149,7 @@ namespace WinFormsApp1.Repositories
                 using (SqlConnection connection = new SqlConnection(DBConnection))
                 {
                     connection.Open();
-                    string SQLQuery = "update Employee set FirstName=@FirstName, LastName=@LastName, PhoneNumber=@PhoneNumber, Email=@Email, Adress=@Adress, ContractStart=@ContractStart, ContractEnd=@ContractEnd) VALUES (@EmpId, @FirstName, @LastName, @PhoneNumber, @Email, @Adress, @ContractStart, @ContractEnd where EmpId=@EmpId";
+                    string SQLQuery = "update Employee set FirstName=@FirstName, LastName=@LastName, PhoneNumber=@PhoneNumber, Email=@Email, Adress=@Adress, ContractStart=@ContractStart, ContractEnd=@ContractEnd where EmpId=@EmpId";
                     using (SqlCommand command = new SqlCommand(SQLQuery, connection))
                     {
                         command.Parameters.AddWithValue("@FirstName", emp.FirstName);
@@ -151,7 +172,7 @@ namespace WinFormsApp1.Repositories
         }
 
         ///Delete
-        public void DeleteClient(int id)
+        public void DeleteEmployee(int id)
         {
             try
             {
@@ -171,6 +192,21 @@ namespace WinFormsApp1.Repositories
             catch (Exception e)
             {
                 Console.WriteLine($"Error: {e}");
+            }
+        }
+        public object EmployeeExist(string email, int phonenumer)
+        {
+            using (SqlConnection connection = new SqlConnection(DBConnection))
+            {
+                connection.Open();
+                string SQLquery = "Select * from Employee where Email = @Email and PhoneNumber = @PhoneNumber";
+                using (SqlCommand command = new SqlCommand(SQLquery, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@PhoneNumber", phonenumer);
+
+                    return command.ExecuteScalar();
+                }
             }
         }
     }
