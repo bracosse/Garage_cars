@@ -167,7 +167,7 @@ namespace WinFormsApp1.Repositories
             }
             catch (Exception e)
             {
-                ;
+                MessageBox.Show("Error Update " + e);
             }
         }
 

@@ -27,5 +27,13 @@ namespace WinFormsApp1
         {
             // Your code here
         }
+
+        private void BtnCustomer_Click(object sender, EventArgs e)
+        {
+            CustoForm CTF = new CustoForm();
+            CTF.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            CTF.Show();
+        }
     }
 }

@@ -100,11 +100,11 @@
             // button5
             // 
             button5.Anchor = AnchorStyles.None;
-            button5.Location = new Point(784, 224);
+            button5.Location = new Point(23, 68);
             button5.Name = "button5";
-            button5.Size = new Size(102, 53);
+            button5.Size = new Size(127, 31);
             button5.TabIndex = 4;
-            button5.Text = "button5";
+            button5.Text = "Search by";
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
