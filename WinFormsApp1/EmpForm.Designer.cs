@@ -56,7 +56,7 @@
             // Btnaddemp
             // 
             Btnaddemp.Anchor = AnchorStyles.None;
-            Btnaddemp.Location = new Point(156, 236);
+            Btnaddemp.Location = new Point(230, 236);
             Btnaddemp.Name = "Btnaddemp";
             Btnaddemp.Size = new Size(174, 29);
             Btnaddemp.TabIndex = 0;
@@ -67,7 +67,7 @@
             // BtnUpdateemp
             // 
             BtnUpdateemp.Anchor = AnchorStyles.None;
-            BtnUpdateemp.Location = new Point(375, 236);
+            BtnUpdateemp.Location = new Point(449, 236);
             BtnUpdateemp.Name = "BtnUpdateemp";
             BtnUpdateemp.Size = new Size(174, 29);
             BtnUpdateemp.TabIndex = 1;
@@ -78,7 +78,7 @@
             // Btndeleteemp
             // 
             Btndeleteemp.Anchor = AnchorStyles.None;
-            Btndeleteemp.Location = new Point(583, 236);
+            Btndeleteemp.Location = new Point(657, 236);
             Btndeleteemp.Name = "Btndeleteemp";
             Btndeleteemp.Size = new Size(174, 29);
             Btndeleteemp.TabIndex = 2;
@@ -89,7 +89,7 @@
             // Btnback
             // 
             Btnback.Anchor = AnchorStyles.None;
-            Btnback.Location = new Point(784, 58);
+            Btnback.Location = new Point(858, 58);
             Btnback.Name = "Btnback";
             Btnback.Size = new Size(102, 35);
             Btnback.TabIndex = 3;
@@ -100,7 +100,7 @@
             // button5
             // 
             button5.Anchor = AnchorStyles.None;
-            button5.Location = new Point(23, 68);
+            button5.Location = new Point(97, 68);
             button5.Name = "button5";
             button5.Size = new Size(127, 31);
             button5.TabIndex = 4;
@@ -115,7 +115,7 @@
             DGridEmp.Location = new Point(23, 287);
             DGridEmp.Name = "DGridEmp";
             DGridEmp.RowHeadersWidth = 51;
-            DGridEmp.Size = new Size(887, 251);
+            DGridEmp.Size = new Size(1034, 251);
             DGridEmp.TabIndex = 5;
             DGridEmp.CellContentClick += DGridEmp_CellClick;
             // 
@@ -123,7 +123,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(156, 73);
+            label1.Location = new Point(230, 73);
             label1.Name = "label1";
             label1.Size = new Size(24, 20);
             label1.TabIndex = 6;
@@ -133,7 +133,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(156, 104);
+            label2.Location = new Point(230, 104);
             label2.Name = "label2";
             label2.Size = new Size(80, 20);
             label2.TabIndex = 7;
@@ -143,7 +143,7 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(156, 137);
+            label3.Location = new Point(230, 137);
             label3.Name = "label3";
             label3.Size = new Size(79, 20);
             label3.TabIndex = 8;
@@ -153,7 +153,7 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(478, 73);
+            label4.Location = new Point(552, 73);
             label4.Name = "label4";
             label4.Size = new Size(108, 20);
             label4.TabIndex = 9;
@@ -163,7 +163,7 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Location = new Point(478, 104);
+            label5.Location = new Point(552, 104);
             label5.Name = "label5";
             label5.Size = new Size(46, 20);
             label5.TabIndex = 10;
@@ -173,7 +173,7 @@
             // 
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Location = new Point(478, 137);
+            label6.Location = new Point(552, 137);
             label6.Name = "label6";
             label6.Size = new Size(62, 20);
             label6.TabIndex = 11;
@@ -183,7 +183,7 @@
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
-            label7.Location = new Point(47, 179);
+            label7.Location = new Point(121, 179);
             label7.Name = "label7";
             label7.Size = new Size(76, 20);
             label7.TabIndex = 12;
@@ -193,7 +193,7 @@
             // 
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
-            label8.Location = new Point(536, 179);
+            label8.Location = new Point(610, 179);
             label8.Name = "label8";
             label8.Size = new Size(94, 20);
             label8.TabIndex = 13;
@@ -202,7 +202,7 @@
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.None;
-            textBox2.Location = new Point(238, 97);
+            textBox2.Location = new Point(312, 97);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(155, 27);
             textBox2.TabIndex = 15;
@@ -210,7 +210,7 @@
             // textBox3
             // 
             textBox3.Anchor = AnchorStyles.None;
-            textBox3.Location = new Point(238, 130);
+            textBox3.Location = new Point(312, 130);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(155, 27);
             textBox3.TabIndex = 16;
@@ -218,7 +218,7 @@
             // textBox4
             // 
             textBox4.Anchor = AnchorStyles.None;
-            textBox4.Location = new Point(602, 66);
+            textBox4.Location = new Point(676, 66);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(155, 27);
             textBox4.TabIndex = 17;
@@ -226,7 +226,7 @@
             // textBox5
             // 
             textBox5.Anchor = AnchorStyles.None;
-            textBox5.Location = new Point(602, 97);
+            textBox5.Location = new Point(676, 97);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(155, 27);
             textBox5.TabIndex = 18;
@@ -234,7 +234,7 @@
             // textBox6
             // 
             textBox6.Anchor = AnchorStyles.None;
-            textBox6.Location = new Point(602, 130);
+            textBox6.Location = new Point(676, 130);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(155, 27);
             textBox6.TabIndex = 19;
@@ -242,7 +242,7 @@
             // StartEmpdateTimePicker
             // 
             StartEmpdateTimePicker.Anchor = AnchorStyles.None;
-            StartEmpdateTimePicker.Location = new Point(129, 174);
+            StartEmpdateTimePicker.Location = new Point(203, 174);
             StartEmpdateTimePicker.Name = "StartEmpdateTimePicker";
             StartEmpdateTimePicker.Size = new Size(250, 27);
             StartEmpdateTimePicker.TabIndex = 22;
@@ -250,7 +250,7 @@
             // EndEmpdateTimePicker
             // 
             EndEmpdateTimePicker.Anchor = AnchorStyles.None;
-            EndEmpdateTimePicker.Location = new Point(636, 174);
+            EndEmpdateTimePicker.Location = new Point(710, 174);
             EndEmpdateTimePicker.Name = "EndEmpdateTimePicker";
             EndEmpdateTimePicker.Size = new Size(250, 27);
             EndEmpdateTimePicker.TabIndex = 23;
@@ -268,7 +268,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(933, 561);
+            ClientSize = new Size(1080, 561);
             Controls.Add(DGridEmp);
             Controls.Add(comboBox1);
             Controls.Add(EndEmpdateTimePicker);

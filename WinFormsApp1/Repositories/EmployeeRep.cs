@@ -19,7 +19,7 @@ namespace WinFormsApp1.Repositories
             using (SqlConnection connection = new SqlConnection(DBConnection))
             {
                 connection.Open();
-                string query = "SELECT EmpId FROM Employee"; // Only IDs
+                string query = "SELECT EmpId FROM Employee"; 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -191,7 +191,7 @@ namespace WinFormsApp1.Repositories
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Error: {e}");
+                Console.WriteLine($"Error delete: {e}");
             }
         }
         public object EmployeeExist(string email, int phonenumer)

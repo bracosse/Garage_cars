@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,37 @@ namespace WinFormsApp1.Repositories
         private readonly string DBConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=GarageDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
 
+
+        public DataTable Fillcomboboxcustorep()
+        {
+            using(SqlConnection connection = new SqlConnection(DBConnection))
+            {
+                connection.Open();
+                string SQLQuery = "select CustId from Customer";
+                using(SqlCommand command = new SqlCommand(SQLQuery, connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+        public DataTable Fillcomboboxemprep()
+        {
+            using (SqlConnection connection = new SqlConnection(DBConnection))
+            {
+                connection.Open();
+                string SQLQuery = "select EmpId from Employee";
+                using(SqlCommand command = new SqlCommand(SQLQuery, connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
         public List<Customer> GetCustomer()
         {
             var customers = new List<Customer>();
@@ -61,7 +93,7 @@ namespace WinFormsApp1.Repositories
         {
             try
             {
-                using(SqlConnection connection = new SqlConnection())
+                using(SqlConnection connection = new SqlConnection(DBConnection))
                 {
                     connection.Open();
                     string SQLQuery = "select * from Customer where CustId=@CustId";
@@ -113,7 +145,7 @@ namespace WinFormsApp1.Repositories
                         command.Parameters.AddWithValue("@Email", cst.Email);
                         command.Parameters.AddWithValue("@Adress", cst.Adress);
                         command.Parameters.AddWithValue("@ArrivalDate", cst.ArrivalDate);
-                        command.Parameters.AddWithValue("@ReturnDate", cst.FirstName);
+                        command.Parameters.AddWithValue("@ReturnDate", cst.ReturnDate);
                         command.Parameters.AddWithValue("@EmpID", cst.EmpID);
 
                         command.ExecuteNonQuery();
@@ -143,9 +175,9 @@ namespace WinFormsApp1.Repositories
                         command.Parameters.AddWithValue("@Email", cst.Email);
                         command.Parameters.AddWithValue("@Adress", cst.Adress);
                         command.Parameters.AddWithValue("@ArrivalDate", cst.ArrivalDate);
-                        command.Parameters.AddWithValue("@ReturnDate", cst.FirstName);
+                        command.Parameters.AddWithValue("@ReturnDate", cst.ReturnDate);
                         command.Parameters.AddWithValue("@EmpID", cst.EmpID);
-
+                        command.Parameters.AddWithValue("@CustId", cst.CustId);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -161,7 +193,7 @@ namespace WinFormsApp1.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection)
+                using (SqlConnection connection = new SqlConnection(DBConnection))
                 {
                     connection.Open();
                     string SQLQuery = "delete from Customer where CustId=@CustId";
@@ -177,6 +209,23 @@ namespace WinFormsApp1.Repositories
             catch (Exception e)
             {
                 Console.WriteLine($"Error: {e}");
+            }
+        }
+
+        public object CustomerExist(string fname, int pnumber, DateTime aridate)
+        {
+            using(SqlConnection connection = new SqlConnection(DBConnection))
+            {
+                connection.Open();
+                string SQLQuery = "select * from Customer where FirstName=@FirstName and PhoneNumber=PhoneNumber and ArrivalDate=@ArrivalDate";
+                using(SqlCommand command = new SqlCommand(SQLQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@FirstName", fname);
+                    command.Parameters.AddWithValue("@PhoneNumber", pnumber);
+                    command.Parameters.AddWithValue("@ArrivalDate", aridate);
+
+                    return command.ExecuteScalar();
+                }
             }
         }
     }

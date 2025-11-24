@@ -46,8 +46,8 @@ namespace WinFormsApp1
                 row["PhoneNumber"] = employee.PhoneNumber;
                 row["Email"] = employee.Email;
                 row["Adress"] = employee.Adress;
-                row["ContractStart"] = employee.ContractStart;
-                row["ContractEnd"] = employee.ContractEnd;
+                row["ContractStart"] = employee.ContractStart.ToString("yyyy-MM-dd");
+                row["ContractEnd"] = employee.ContractEnd.ToString("yyyy-MM-dd");
 
                 datable.Rows.Add(row);
             }

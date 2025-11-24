@@ -62,21 +62,23 @@
             DGridCusto.Location = new Point(23, 279);
             DGridCusto.Name = "DGridCusto";
             DGridCusto.RowHeadersWidth = 51;
-            DGridCusto.Size = new Size(898, 238);
+            DGridCusto.Size = new Size(1150, 238);
             DGridCusto.TabIndex = 30;
             // 
             // comboBox1
             // 
+            comboBox1.Anchor = AnchorStyles.None;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(241, 56);
+            comboBox1.Location = new Point(367, 56);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(155, 28);
             comboBox1.TabIndex = 46;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // ReturnEmpdateTimePicker
             // 
             ReturnEmpdateTimePicker.Anchor = AnchorStyles.None;
-            ReturnEmpdateTimePicker.Location = new Point(639, 156);
+            ReturnEmpdateTimePicker.Location = new Point(765, 156);
             ReturnEmpdateTimePicker.Name = "ReturnEmpdateTimePicker";
             ReturnEmpdateTimePicker.Size = new Size(250, 27);
             ReturnEmpdateTimePicker.TabIndex = 45;
@@ -84,7 +86,7 @@
             // ArrivalEmpdateTimePicker
             // 
             ArrivalEmpdateTimePicker.Anchor = AnchorStyles.None;
-            ArrivalEmpdateTimePicker.Location = new Point(146, 156);
+            ArrivalEmpdateTimePicker.Location = new Point(272, 156);
             ArrivalEmpdateTimePicker.Name = "ArrivalEmpdateTimePicker";
             ArrivalEmpdateTimePicker.Size = new Size(250, 27);
             ArrivalEmpdateTimePicker.TabIndex = 44;
@@ -92,7 +94,7 @@
             // ADressBox
             // 
             ADressBox.Anchor = AnchorStyles.None;
-            ADressBox.Location = new Point(605, 120);
+            ADressBox.Location = new Point(731, 120);
             ADressBox.Name = "ADressBox";
             ADressBox.Size = new Size(155, 27);
             ADressBox.TabIndex = 43;
@@ -100,7 +102,7 @@
             // EMailBox
             // 
             EMailBox.Anchor = AnchorStyles.None;
-            EMailBox.Location = new Point(605, 87);
+            EMailBox.Location = new Point(731, 87);
             EMailBox.Name = "EMailBox";
             EMailBox.Size = new Size(155, 27);
             EMailBox.TabIndex = 42;
@@ -108,7 +110,7 @@
             // PNBox
             // 
             PNBox.Anchor = AnchorStyles.None;
-            PNBox.Location = new Point(605, 56);
+            PNBox.Location = new Point(731, 56);
             PNBox.Name = "PNBox";
             PNBox.Size = new Size(155, 27);
             PNBox.TabIndex = 41;
@@ -116,7 +118,7 @@
             // LNameBox
             // 
             LNameBox.Anchor = AnchorStyles.None;
-            LNameBox.Location = new Point(241, 123);
+            LNameBox.Location = new Point(367, 123);
             LNameBox.Name = "LNameBox";
             LNameBox.Size = new Size(155, 27);
             LNameBox.TabIndex = 40;
@@ -124,7 +126,7 @@
             // FNameBox
             // 
             FNameBox.Anchor = AnchorStyles.None;
-            FNameBox.Location = new Point(241, 90);
+            FNameBox.Location = new Point(367, 90);
             FNameBox.Name = "FNameBox";
             FNameBox.Size = new Size(155, 27);
             FNameBox.TabIndex = 39;
@@ -133,7 +135,7 @@
             // 
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
-            label8.Location = new Point(545, 161);
+            label8.Location = new Point(671, 161);
             label8.Name = "label8";
             label8.Size = new Size(88, 20);
             label8.TabIndex = 38;
@@ -143,7 +145,7 @@
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
-            label7.Location = new Point(52, 161);
+            label7.Location = new Point(178, 161);
             label7.Name = "label7";
             label7.Size = new Size(88, 20);
             label7.TabIndex = 37;
@@ -153,7 +155,7 @@
             // 
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Location = new Point(481, 127);
+            label6.Location = new Point(607, 127);
             label6.Name = "label6";
             label6.Size = new Size(62, 20);
             label6.TabIndex = 36;
@@ -163,7 +165,7 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Location = new Point(481, 94);
+            label5.Location = new Point(607, 94);
             label5.Name = "label5";
             label5.Size = new Size(46, 20);
             label5.TabIndex = 35;
@@ -173,7 +175,7 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(481, 63);
+            label4.Location = new Point(607, 63);
             label4.Name = "label4";
             label4.Size = new Size(108, 20);
             label4.TabIndex = 34;
@@ -183,7 +185,7 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(156, 127);
+            label3.Location = new Point(282, 127);
             label3.Name = "label3";
             label3.Size = new Size(79, 20);
             label3.TabIndex = 33;
@@ -193,7 +195,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(155, 94);
+            label2.Location = new Point(281, 94);
             label2.Name = "label2";
             label2.Size = new Size(80, 20);
             label2.TabIndex = 32;
@@ -203,7 +205,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(159, 63);
+            label1.Location = new Point(285, 63);
             label1.Name = "label1";
             label1.Size = new Size(24, 20);
             label1.TabIndex = 31;
@@ -212,17 +214,18 @@
             // button5
             // 
             button5.Anchor = AnchorStyles.None;
-            button5.Location = new Point(23, 54);
+            button5.Location = new Point(149, 54);
             button5.Name = "button5";
             button5.Size = new Size(127, 31);
             button5.TabIndex = 29;
             button5.Text = "Search by";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Btnback
             // 
             Btnback.Anchor = AnchorStyles.None;
-            Btnback.Location = new Point(794, 54);
+            Btnback.Location = new Point(920, 54);
             Btnback.Name = "Btnback";
             Btnback.Size = new Size(127, 31);
             Btnback.TabIndex = 28;
@@ -233,45 +236,50 @@
             // Btndeleteemp
             // 
             Btndeleteemp.Anchor = AnchorStyles.None;
-            Btndeleteemp.Location = new Point(586, 235);
+            Btndeleteemp.Location = new Point(712, 235);
             Btndeleteemp.Name = "Btndeleteemp";
             Btndeleteemp.Size = new Size(174, 29);
             Btndeleteemp.TabIndex = 27;
             Btndeleteemp.Text = "Delete";
             Btndeleteemp.UseVisualStyleBackColor = true;
+            Btndeleteemp.Click += Btndeleteemp_Click;
             // 
             // BtnUpdateemp
             // 
             BtnUpdateemp.Anchor = AnchorStyles.None;
-            BtnUpdateemp.Location = new Point(378, 235);
+            BtnUpdateemp.Location = new Point(504, 235);
             BtnUpdateemp.Name = "BtnUpdateemp";
             BtnUpdateemp.Size = new Size(174, 29);
             BtnUpdateemp.TabIndex = 26;
             BtnUpdateemp.Text = "Update";
             BtnUpdateemp.UseVisualStyleBackColor = true;
+            BtnUpdateemp.Click += BtnUpdateemp_Click;
             // 
             // Btnaddemp
             // 
             Btnaddemp.Anchor = AnchorStyles.None;
-            Btnaddemp.Location = new Point(159, 235);
+            Btnaddemp.Location = new Point(285, 235);
             Btnaddemp.Name = "Btnaddemp";
             Btnaddemp.Size = new Size(174, 29);
             Btnaddemp.TabIndex = 25;
             Btnaddemp.Text = "Add";
             Btnaddemp.UseVisualStyleBackColor = true;
+            Btnaddemp.Click += Btnaddemp_Click;
             // 
             // comboBox2
             // 
+            comboBox2.Anchor = AnchorStyles.None;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(463, 192);
+            comboBox2.Location = new Point(589, 192);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(155, 28);
             comboBox2.TabIndex = 47;
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
-            label9.Location = new Point(318, 195);
+            label9.Location = new Point(444, 195);
             label9.Name = "label9";
             label9.Size = new Size(139, 20);
             label9.TabIndex = 48;
@@ -281,7 +289,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(944, 540);
+            ClientSize = new Size(1196, 540);
             Controls.Add(label9);
             Controls.Add(comboBox2);
             Controls.Add(DGridCusto);
