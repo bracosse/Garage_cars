@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             BtnEmployee = new Button();
-            button2 = new Button();
             button3 = new Button();
             BtnCustomer = new Button();
+            BtnCar = new Button();
             SuspendLayout();
             // 
             // BtnEmployee
             // 
             BtnEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BtnEmployee.BackColor = Color.Turquoise;
-            BtnEmployee.Location = new Point(40, 127);
+            BtnEmployee.Location = new Point(23, 127);
             BtnEmployee.Name = "BtnEmployee";
             BtnEmployee.Size = new Size(199, 166);
             BtnEmployee.TabIndex = 0;
@@ -46,19 +46,9 @@
             BtnEmployee.UseVisualStyleBackColor = false;
             BtnEmployee.Click += BtnEmployee_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(589, 63);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // button3
             // 
-            button3.Location = new Point(589, 115);
+            button3.Location = new Point(589, 11);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 2;
@@ -70,7 +60,7 @@
             // 
             BtnCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BtnCustomer.BackColor = Color.Turquoise;
-            BtnCustomer.Location = new Point(291, 127);
+            BtnCustomer.Location = new Point(228, 127);
             BtnCustomer.Name = "BtnCustomer";
             BtnCustomer.Size = new Size(199, 166);
             BtnCustomer.TabIndex = 3;
@@ -78,14 +68,26 @@
             BtnCustomer.UseVisualStyleBackColor = false;
             BtnCustomer.Click += BtnCustomer_Click;
             // 
+            // BtnCar
+            // 
+            BtnCar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BtnCar.BackColor = Color.Turquoise;
+            BtnCar.Location = new Point(433, 127);
+            BtnCar.Name = "BtnCar";
+            BtnCar.Size = new Size(199, 166);
+            BtnCar.TabIndex = 4;
+            BtnCar.Text = "Car form";
+            BtnCar.UseVisualStyleBackColor = false;
+            BtnCar.Click += BtnCar_Click;
+            // 
             // Base
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnCar);
             Controls.Add(BtnCustomer);
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(BtnEmployee);
             Name = "Base";
             Text = "Base";
@@ -96,8 +98,8 @@
         #endregion
 
         private Button BtnEmployee;
-        private Button button2;
         private Button button3;
         private Button BtnCustomer;
+        private Button BtnCar;
     }
 }

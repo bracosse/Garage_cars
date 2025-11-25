@@ -17,4 +17,9 @@ namespace WinFormsApp1.Models
         public string Issue { get; set; }
         public string Fixed { get; set; }
     }
+    public class YesNo
+    {
+        public string Name { get; set; }
+        //public string Value { get; set; }
+    }
 }

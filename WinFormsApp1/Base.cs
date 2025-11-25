@@ -35,5 +35,13 @@ namespace WinFormsApp1
             this.Hide();
             CTF.Show();
         }
+
+        private void BtnCar_Click(object sender, EventArgs e)
+        {
+            CarForm CAR = new CarForm();
+            CAR.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            CAR.Show();
+        }
     }
 }
