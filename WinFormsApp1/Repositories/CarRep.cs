@@ -204,5 +204,71 @@ namespace WinFormsApp1.Repositories
                 Console.WriteLine($"Error: {e}");
             }
         }
+        public List<Car> SearchCarcst(int id)
+        {
+            List<Car> cars = new List<Car>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DBConnection))
+                {
+                    connection.Open();
+                    string SQLQuery = "SELECT * FROM Car WHERE CustID=@CustID";
+
+                    using (SqlCommand command = new SqlCommand(SQLQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@CustID", id);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cars.Add(new Car
+                                {
+                                    CarId = (int)reader["CarId"],
+                                    CustID = (int)reader["CustID"],
+                                    CarName = reader["CarName"].ToString(),
+                                    Brand = reader["Brand"].ToString(),
+                                    Color = reader["Color"].ToString(),
+                                    HorsePower = (int)reader["HorsePower"],
+                                    Issue = reader["Issue"].ToString(),
+                                    Fixed = reader["Fixed"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error in SearchCarcst: " + e.Message);
+            }
+
+            return cars;
+        }
+
+
+        public void DeleteCaRCST(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DBConnection))
+                {
+                    connection.Open();
+                    string SQLQuery = "delete from Car where CarId=@CarId";
+
+                    using (SqlCommand command = new SqlCommand(SQLQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@CarId", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e}");
+            }
+        }
     }
 }

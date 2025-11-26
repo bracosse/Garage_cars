@@ -214,20 +214,79 @@ namespace WinFormsApp1
 
                 DialogResult DLR = MessageBox.Show("Are you sure", "delete", MessageBoxButtons.YesNo);
                 if (DLR == DialogResult.No) return;
-                var rep = new CustomerRep();
-                rep.DeleteEmployee(carid);
+                var rep = new CarRep();
+                rep.DeleteCaR(carid);
                 MessageBox.Show("done");
             }
             catch (Exception e)
             {
-                MessageBox.Show("error" + e);
+                MessageBox.Show("Select a customer in the table below");
             }
         }
         private void Btndeleteemp_Click(object sender, EventArgs e)
         {
-            RemoveCar();
+            RemoveCar();    
             ReadCar();
             FillComboboxcar();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Searchingcst();
+        }
+
+
+        private void Searchingcst()
+        {
+            if (comboBox1.SelectedIndex == -1 || comboBox1.SelectedValue == null)
+            {
+                MessageBox.Show("Select a customer");
+                return;
+            }
+
+            if (!int.TryParse(comboBox1.SelectedValue.ToString(), out int selectedId))
+            {
+                MessageBox.Show("Wrong value entrance");
+                return;
+            }
+
+            var rep = new CarRep();
+            var cars = rep.SearchCarcst(selectedId); // NOW returns List<Car>
+
+            if (cars == null || !cars.Any())
+            {
+                MessageBox.Show("No cars found for this customer.");
+                return;
+            }
+
+            DataTable datable = new DataTable();
+            datable.Columns.Add("CarId");
+            datable.Columns.Add("CustID");
+            datable.Columns.Add("CarName");
+            datable.Columns.Add("Brand");
+            datable.Columns.Add("Color");
+            datable.Columns.Add("HorsePower");
+            datable.Columns.Add("Issue");
+            datable.Columns.Add("Fixed");
+
+            foreach (var car in cars)
+            {
+                var row = datable.NewRow();
+                row["CarId"] = car.CarId;
+                row["CustID"] = car.CustID;
+                row["CarName"] = car.CarName;
+                row["Brand"] = car.Brand;
+                row["Color"] = car.Color;
+                row["HorsePower"] = car.HorsePower;
+                row["Issue"] = car.Issue;
+                row["Fixed"] = car.Fixed;
+
+                datable.Rows.Add(row);
+            }
+
+            CarSearchForm csf = new CarSearchForm(datable);
+            csf.Show();
+        }
+
     }
 }

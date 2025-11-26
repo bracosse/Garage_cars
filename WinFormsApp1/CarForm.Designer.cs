@@ -229,12 +229,13 @@
             // button5
             // 
             button5.Anchor = AnchorStyles.None;
-            button5.Location = new Point(856, 260);
+            button5.Location = new Point(65, 63);
             button5.Name = "button5";
             button5.Size = new Size(127, 31);
             button5.TabIndex = 53;
-            button5.Text = "Search";
+            button5.Text = "Search BY";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // comboBox1
             // 
