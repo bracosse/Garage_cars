@@ -43,5 +43,13 @@ namespace WinFormsApp1
             this.Hide();
             CAR.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PartsForm PTF = new PartsForm();
+            PTF.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            PTF.Show();
+        }
     }
 }

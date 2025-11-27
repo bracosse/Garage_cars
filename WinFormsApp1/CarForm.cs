@@ -60,7 +60,7 @@ namespace WinFormsApp1
             DataTable dt = rep.Fillcomboboxcustorep();
 
             comboBox1.DataSource = dt;
-            comboBox1.DisplayMember = "FirstName";
+            comboBox1.DisplayMember = "CustId";
             comboBox1.ValueMember = "CustId";
             comboBox1.SelectedIndex = -1;
         }
@@ -70,7 +70,7 @@ namespace WinFormsApp1
             DataTable dt = rep.Fillcomboboxcarrep();
 
             comboBox3.DataSource = dt;
-            comboBox3.DisplayMember = "FirstName";
+            comboBox3.DisplayMember = "CarId";
             comboBox3.ValueMember = "CarId";
             comboBox3.SelectedIndex = -1;
         }
