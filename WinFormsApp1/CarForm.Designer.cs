@@ -35,7 +35,6 @@
             HorsepowerBox = new TextBox();
             ColorBox = new TextBox();
             Brandbox = new TextBox();
-            Namebox = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -50,6 +49,7 @@
             comboBox1 = new ComboBox();
             comboBox3 = new ComboBox();
             label7 = new Label();
+            Namebox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)DtGCar).BeginInit();
             SuspendLayout();
             // 
@@ -113,14 +113,6 @@
             Brandbox.Name = "Brandbox";
             Brandbox.Size = new Size(155, 27);
             Brandbox.TabIndex = 64;
-            // 
-            // Namebox
-            // 
-            Namebox.Anchor = AnchorStyles.None;
-            Namebox.Location = new Point(296, 99);
-            Namebox.Name = "Namebox";
-            Namebox.Size = new Size(155, 27);
-            Namebox.TabIndex = 63;
             // 
             // label6
             // 
@@ -266,6 +258,14 @@
             label7.TabIndex = 75;
             label7.Text = "Car ID";
             // 
+            // Namebox
+            // 
+            Namebox.Anchor = AnchorStyles.None;
+            Namebox.Location = new Point(296, 99);
+            Namebox.Name = "Namebox";
+            Namebox.Size = new Size(155, 27);
+            Namebox.TabIndex = 63;
+            // 
             // CarForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -310,7 +310,6 @@
         private TextBox HorsepowerBox;
         private TextBox ColorBox;
         private TextBox Brandbox;
-        private TextBox Namebox;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -325,5 +324,6 @@
         private ComboBox comboBox1;
         private ComboBox comboBox3;
         private Label label7;
+        private TextBox Namebox;
     }
 }

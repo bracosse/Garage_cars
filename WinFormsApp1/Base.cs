@@ -51,5 +51,13 @@ namespace WinFormsApp1
             this.Hide();
             PTF.Show();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            NeededPart NPT = new NeededPart();
+            NPT.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            NPT.Show();
+        }
     }
 }

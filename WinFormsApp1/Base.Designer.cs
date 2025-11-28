@@ -32,6 +32,7 @@
             BtnCustomer = new Button();
             BtnCar = new Button();
             button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // BtnEmployee
@@ -82,11 +83,24 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button2.BackColor = Color.Turquoise;
+            button2.Location = new Point(38, 200);
+            button2.Name = "button2";
+            button2.Size = new Size(106, 77);
+            button2.TabIndex = 6;
+            button2.Text = "Parts needed";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
+            // 
             // Base
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(BtnCar);
             Controls.Add(BtnCustomer);
@@ -103,5 +117,6 @@
         private Button BtnCustomer;
         private Button BtnCar;
         private Button button1;
+        private Button button2;
     }
 }
