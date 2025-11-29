@@ -127,7 +127,7 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Fill the values");
+                MessageBox.Show("error combobox 3");
             }
         }
         public void finalprice()
@@ -141,7 +141,7 @@ namespace WinFormsApp1
             int.TryParse(HandBox.Text, out handValue);
 
             int total = labelValue + handValue;
-            label15.Text = total.ToString() + " Dhs";
+            label15.Text = total.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -149,14 +149,14 @@ namespace WinFormsApp1
 
             if (comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1 || comboBox3.SelectedIndex == -1 || HandBox.Text == null)
             {
-                MessageBox.Show("Fill the values");
+                MessageBox.Show("error btn price");
             }
             finalprice();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
             int carId = 0;
 
@@ -177,6 +177,87 @@ namespace WinFormsApp1
             label5.Text = inf.EmpId.ToString();
 
             FillComboboxIssue();
+        }
+
+        public void SaveToArchive()
+        {
+            Archive arc = new Archive();
+            var rep = new ArcHiveRep();
+
+            //if (comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1 || comboBox3.SelectedIndex == -1 || comboBox4.SelectedIndex == -1 || HandBox.Text == "")
+            //{
+            //    MessageBox.Show("Please Fill all the values before sending to Archive.");
+            //    return;
+            //}
+            //if (label15.Text == "price" || label15.Text == "0 Dhs")
+            //{
+            //    MessageBox.Show("Generate the final price with the Button");
+            //    return;
+            //}
+
+            arc.EmployeeID = int.Parse(label5.Text);
+            arc.CustomerID = int.Parse(label19.Text);
+            arc.FirstName = label13.Text;
+            arc.LastName = label7.Text;
+            arc.CarID = int.Parse(comboBox1.Text);
+            arc.Issue = comboBox4.Text;
+            arc.PartName = label8.Text;
+            arc.PartProvider = label9.Text;
+            arc.Quantity = int.Parse(comboBox3.Text);
+            arc.ServicePrice = int.Parse(HandBox.Text);
+            arc.FinalPrice = int.Parse(label15.Text);
+
+            rep.AddToArchive(arc);
+        }
+        public void RemoveCar()
+        {
+            try
+            {
+                var val = Convert.ToInt32(comboBox1.SelectedValue);
+                //if (val == null) return;
+
+                int carid = val;                
+                var rep = new CarRep();
+                rep.DeleteCaR(carid);
+
+
+                comboBox1.SelectedIndex = -1;
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedValue = -1;
+                comboBox4.SelectedIndex = -1;
+                HandBox.Text = "";
+                label15.Text = "price";
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("this is "+ e);
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1 || comboBox3.SelectedIndex == -1 || comboBox4.SelectedIndex == -1 || HandBox.Text == "")
+            {
+                MessageBox.Show("Please Fill all the values before sending to Archive.");
+                return;
+            }
+            if (label15.Text == "price" || label15.Text == "0")
+            {
+                MessageBox.Show("Generate the final price with the Button");
+                return;
+            }
+            DialogResult DLR = MessageBox.Show("This will Archive this car and delete it from the database Car, are you sure you want to continue?", "delete", MessageBoxButtons.YesNo);
+            if (DLR == DialogResult.No)
+            {
+                return;
+            }
+            if (DLR == DialogResult.Yes)
+            {
+                
+                SaveToArchive();
+                RemoveCar();
+                FillComboboxcar();
+                MessageBox.Show("done");
+            }
         }
     }
 }

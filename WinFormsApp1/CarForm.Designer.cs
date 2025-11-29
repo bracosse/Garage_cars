@@ -50,6 +50,7 @@
             comboBox3 = new ComboBox();
             label7 = new Label();
             Namebox = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)DtGCar).BeginInit();
             SuspendLayout();
             // 
@@ -266,11 +267,23 @@
             Namebox.Size = new Size(155, 27);
             Namebox.TabIndex = 63;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.None;
+            button1.Location = new Point(880, 258);
+            button1.Name = "button1";
+            button1.Size = new Size(127, 31);
+            button1.TabIndex = 76;
+            button1.Text = "Save";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // CarForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1030, 589);
+            Controls.Add(button1);
             Controls.Add(label7);
             Controls.Add(comboBox3);
             Controls.Add(comboBox1);
@@ -325,5 +338,6 @@
         private ComboBox comboBox3;
         private Label label7;
         private TextBox Namebox;
+        private Button button1;
     }
 }

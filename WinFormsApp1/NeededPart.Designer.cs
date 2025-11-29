@@ -253,6 +253,7 @@
             button2.TabIndex = 95;
             button2.Text = "Submit changes to db";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 

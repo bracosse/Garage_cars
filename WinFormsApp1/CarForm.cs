@@ -225,7 +225,7 @@ namespace WinFormsApp1
         }
         private void Btndeleteemp_Click(object sender, EventArgs e)
         {
-            RemoveCar();    
+            RemoveCar();
             ReadCar();
             FillComboboxcar();
         }
@@ -288,5 +288,12 @@ namespace WinFormsApp1
             csf.Show();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NeededPart NPT = new NeededPart();
+            NPT.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            NPT.Show();
+        }
     }
 }
