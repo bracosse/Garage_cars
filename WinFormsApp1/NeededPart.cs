@@ -39,6 +39,28 @@ namespace WinFormsApp1
             comboBox2.ValueMember = "PartID";
             comboBox2.SelectedIndex = -1;
         }
+        public void FillComboboxIssue()
+        {
+            int id = 0;
+
+            if (comboBox1.SelectedValue is DataRowView drv)
+            {
+                id = Convert.ToInt32(drv["CarId"]);
+            }
+            else if (comboBox1.SelectedValue != null)
+            {
+                id = Convert.ToInt32(comboBox1.SelectedValue);
+            }
+
+            var rep = new NeededPartRep();
+            DataTable dt = rep.Fillcomboboxissue(id);
+
+            comboBox4.DataSource = dt;
+            comboBox4.DisplayMember = "Issue";
+            comboBox4.ValueMember = "Issue";
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            //comboBox4.SelectedIndex = -1;
+        }
         //public void FillComboboxqty()
         //{
         //    var rep = new NeededPartRep();
@@ -49,6 +71,7 @@ namespace WinFormsApp1
         //    comboBox1.ValueMember = "Quantity";
         //    comboBox1.SelectedIndex = -1;
         //}
+
         private void NeededPart_Load(object sender, EventArgs e)
         {
             FillComboboxcar();
@@ -148,9 +171,12 @@ namespace WinFormsApp1
 
             var rep = new NeededPartRep();
             var inf = rep.GetCustInfo(carId);
+            label19.Text = inf.CustId.ToString();
             label13.Text = inf.FirstName;
             label7.Text = inf.LastName;
             label5.Text = inf.EmpId.ToString();
+
+            FillComboboxIssue();
         }
     }
 }

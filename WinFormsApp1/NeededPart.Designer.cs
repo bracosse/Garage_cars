@@ -49,6 +49,9 @@
             label5 = new Label();
             button2 = new Button();
             button3 = new Button();
+            label19 = new Label();
+            comboBox4 = new ComboBox();
+            label17 = new Label();
             SuspendLayout();
             // 
             // comboBox1
@@ -65,7 +68,7 @@
             // 
             comboBox2.Anchor = AnchorStyles.None;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(193, 116);
+            comboBox2.Location = new Point(193, 125);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(155, 28);
             comboBox2.TabIndex = 75;
@@ -75,7 +78,7 @@
             // 
             comboBox3.Anchor = AnchorStyles.None;
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(193, 150);
+            comboBox3.Location = new Point(193, 159);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(155, 28);
             comboBox3.TabIndex = 76;
@@ -95,7 +98,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(72, 153);
+            label2.Location = new Point(72, 162);
             label2.Name = "label2";
             label2.Size = new Size(65, 20);
             label2.TabIndex = 78;
@@ -105,7 +108,7 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(96, 124);
+            label3.Location = new Point(96, 133);
             label3.Name = "label3";
             label3.Size = new Size(49, 20);
             label3.TabIndex = 79;
@@ -115,7 +118,7 @@
             // 
             label15.Anchor = AnchorStyles.None;
             label15.AutoSize = true;
-            label15.Location = new Point(702, 278);
+            label15.Location = new Point(700, 292);
             label15.Name = "label15";
             label15.Size = new Size(42, 20);
             label15.TabIndex = 82;
@@ -145,7 +148,7 @@
             // 
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
-            label8.Location = new Point(358, 124);
+            label8.Location = new Point(358, 133);
             label8.Name = "label8";
             label8.Size = new Size(75, 20);
             label8.TabIndex = 85;
@@ -155,7 +158,7 @@
             // 
             label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
-            label9.Location = new Point(504, 124);
+            label9.Location = new Point(504, 133);
             label9.Name = "label9";
             label9.Size = new Size(94, 20);
             label9.TabIndex = 86;
@@ -165,7 +168,7 @@
             // 
             label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
-            label10.Location = new Point(55, 202);
+            label10.Location = new Point(55, 211);
             label10.Name = "label10";
             label10.Size = new Size(93, 20);
             label10.TabIndex = 87;
@@ -174,7 +177,7 @@
             // HandBox
             // 
             HandBox.Anchor = AnchorStyles.None;
-            HandBox.Location = new Point(193, 195);
+            HandBox.Location = new Point(193, 204);
             HandBox.Name = "HandBox";
             HandBox.Size = new Size(155, 27);
             HandBox.TabIndex = 88;
@@ -194,7 +197,7 @@
             // 
             label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
-            label11.Location = new Point(650, 124);
+            label11.Location = new Point(650, 133);
             label11.Name = "label11";
             label11.Size = new Size(41, 20);
             label11.TabIndex = 90;
@@ -204,7 +207,7 @@
             // 
             label12.Anchor = AnchorStyles.None;
             label12.AutoSize = true;
-            label12.Location = new Point(504, 158);
+            label12.Location = new Point(504, 167);
             label12.Name = "label12";
             label12.Size = new Size(17, 20);
             label12.TabIndex = 91;
@@ -213,7 +216,7 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(678, 202);
+            button1.Location = new Point(678, 211);
             button1.Name = "button1";
             button1.Size = new Size(89, 64);
             button1.TabIndex = 92;
@@ -225,7 +228,7 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(358, 158);
+            label4.Location = new Point(358, 167);
             label4.Name = "label4";
             label4.Size = new Size(78, 20);
             label4.TabIndex = 93;
@@ -261,11 +264,43 @@
             button3.Text = "Print";
             button3.UseVisualStyleBackColor = true;
             // 
+            // label19
+            // 
+            label19.Anchor = AnchorStyles.None;
+            label19.AutoSize = true;
+            label19.Location = new Point(358, 60);
+            label19.Name = "label19";
+            label19.Size = new Size(91, 20);
+            label19.TabIndex = 97;
+            label19.Text = "Customer ID";
+            // 
+            // comboBox4
+            // 
+            comboBox4.Anchor = AnchorStyles.None;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(193, 247);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(155, 28);
+            comboBox4.TabIndex = 98;
+            // 
+            // label17
+            // 
+            label17.Anchor = AnchorStyles.None;
+            label17.AutoSize = true;
+            label17.Location = new Point(96, 250);
+            label17.Name = "label17";
+            label17.Size = new Size(41, 20);
+            label17.TabIndex = 99;
+            label17.Text = "Issue";
+            // 
             // NeededPart
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label17);
+            Controls.Add(comboBox4);
+            Controls.Add(label19);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label5);
@@ -317,5 +352,8 @@
         private Label label5;
         private Button button2;
         private Button button3;
+        private Label label19;
+        private ComboBox comboBox4;
+        private Label label17;
     }
 }

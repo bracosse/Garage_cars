@@ -42,6 +42,23 @@ namespace WinFormsApp1.Repositories
                 }
             }
         }
+
+        public DataTable Fillcomboboxissue(int CarID)
+        {
+            using (SqlConnection connection = new SqlConnection(DBConnection))
+            {
+                connection.Open();
+                string SQLQuery = "select Issue from Car where CarId=@CarID";
+                using (SqlCommand command = new SqlCommand(SQLQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@CarID", CarID);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
         public int GetPartQuantity(int partId)
         {
             using (SqlConnection connection = new SqlConnection(DBConnection))
@@ -82,12 +99,12 @@ namespace WinFormsApp1.Repositories
             }
         }
 
-        public (string FirstName, string LastName, int EmpId) GetCustInfo(int CarID)
+        public (int CustId, string FirstName, string LastName, int EmpId) GetCustInfo(int CarID)
         {
             using (SqlConnection connection = new SqlConnection(DBConnection))
             {
                 connection.Open();
-                string query = "select c.FirstName, c.LastName, c.EmpID from Customer c join Car ca on ca.CustID = c.CustId where ca.CarId = @Carid";
+                string query = "select c.CustId, c.FirstName, c.LastName, c.EmpID from Customer c join Car ca on ca.CustID = c.CustId where ca.CarId = @Carid";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Carid", CarID);
@@ -95,11 +112,11 @@ namespace WinFormsApp1.Repositories
                     {
                         if (reader.Read())
                         {
-                            return (reader["FirstName"].ToString(), reader["LastName"].ToString(), int.Parse(reader["EmpId"].ToString()));
+                            return (int.Parse(reader["CustId"].ToString()), reader["FirstName"].ToString(), reader["LastName"].ToString(), int.Parse(reader["EmpId"].ToString()));
                         }
                         else
                         {
-                            return ("last name ","last name", 0);
+                            return (0, "last name ","last name", 0);
                         }
                     }
                 }
