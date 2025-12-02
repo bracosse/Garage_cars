@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,13 @@ namespace WinFormsApp1
 {
     public partial class NeededPart : MetroFramework.Forms.MetroForm
     {
+        private PrintDocument printDocument1 = new PrintDocument();
+
+
         public NeededPart()
         {
             InitializeComponent();
+            printDocument1.PrintPage += PrintDoc;
         }
 
         public void FillComboboxcar()
@@ -216,7 +221,7 @@ namespace WinFormsApp1
                 var val = Convert.ToInt32(comboBox1.SelectedValue);
                 //if (val == null) return;
 
-                int carid = val;                
+                int carid = val;
                 var rep = new CarRep();
                 rep.DeleteCaR(carid);
 
@@ -230,7 +235,7 @@ namespace WinFormsApp1
             }
             catch (Exception e)
             {
-                MessageBox.Show("this is "+ e);
+                MessageBox.Show("this is " + e);
             }
         }
 
@@ -284,6 +289,102 @@ namespace WinFormsApp1
                 RemoveCar();
                 FillComboboxcar();
                 MessageBox.Show("done");
+            }
+        }
+
+        private void PrintDoc(object sender, PrintPageEventArgs e)
+        {
+            int y = 40;
+            Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+            Font subHeaderFont = new Font("Arial", 12, FontStyle.Bold);
+            Font textFont = new Font("Arial", 11);
+
+            float pageWidth = e.PageBounds.Width;
+
+            string header = "*****-RECEIPT-*****";
+            float headerWidth = e.Graphics.MeasureString(header, headerFont).Width;
+            e.Graphics.DrawString(header, headerFont, Brushes.Black, (pageWidth - headerWidth) / 2, y);
+            y += 40;
+
+            
+            e.Graphics.DrawLine(Pens.Black, 40, y, pageWidth - 40, y);
+            y += 20;
+
+            
+            string section = "Customer Details";
+            float sectionWidth = e.Graphics.MeasureString(section, subHeaderFont).Width;
+            e.Graphics.DrawString(section, subHeaderFont, Brushes.Black, (pageWidth - sectionWidth) / 2, y);
+            y += 25;
+
+            e.Graphics.DrawString($"ID: {label19.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"ID: {label19.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"First Name: {label13.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"First Name: {label13.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"Last Name:  {label7.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Last Name:  {label7.Text}", textFont).Width) / 2, y); y += 30;
+
+            
+            e.Graphics.DrawLine(Pens.Black, 40, y, pageWidth - 40, y);
+            y += 20;
+
+            
+            section = "Service Details";
+            sectionWidth = e.Graphics.MeasureString(section, subHeaderFont).Width;
+            e.Graphics.DrawString(section, subHeaderFont, Brushes.Black, (pageWidth - sectionWidth) / 2, y);
+            y += 25;
+
+            e.Graphics.DrawString($"Employee In Charge: {label5.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Employee in Charge: {label5.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"Car ID: {comboBox1.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Car ID: {comboBox1.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"Problem Solved: {comboBox4.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Problem Solved: {comboBox4.Text}", textFont).Width) / 2, y); y += 30;
+
+            
+            e.Graphics.DrawLine(Pens.Black, 40, y, pageWidth - 40, y);
+            y += 20;
+
+            
+            section = "Exchange Parts Used";
+            sectionWidth = e.Graphics.MeasureString(section, subHeaderFont).Width;
+            e.Graphics.DrawString(section, subHeaderFont, Brushes.Black, (pageWidth - sectionWidth) / 2, y);
+            y += 25;
+
+            e.Graphics.DrawString($"Exchange Part ID: {comboBox2.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Part ID: {comboBox2.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"Exchange Part Name: {label9.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Part Name: {label9.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"Quantity: {comboBox3.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Quantity: {comboBox3.Text}", textFont).Width) / 2, y); y += 30;
+
+            
+            e.Graphics.DrawLine(Pens.Black, 40, y, pageWidth - 40, y);
+            y += 20;
+
+            
+            section = "To be Paid";
+            sectionWidth = e.Graphics.MeasureString(section, subHeaderFont).Width;
+            e.Graphics.DrawString(section, subHeaderFont, Brushes.Black, (pageWidth - sectionWidth) / 2, y);
+            y += 25;
+
+            e.Graphics.DrawString($"Service Fees: {HandBox.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Service Price: {HandBox.Text}", textFont).Width) / 2, y); y += 20;
+            e.Graphics.DrawString($"Total Price: {label15.Text}", textFont, Brushes.Black, (pageWidth - e.Graphics.MeasureString($"Final Price: {label15.Text}", textFont).Width) / 2, y); y += 30;
+
+            
+            y += 20;
+            string footer = "Thank You For Choosing Our Garage!";
+            float footerWidth = e.Graphics.MeasureString(footer, textFont).Width;
+            e.Graphics.DrawString(footer, textFont, Brushes.Black, (pageWidth - footerWidth) / 2, y);
+        }
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
+                saveDialog.FileName = "receipt";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                    printDocument1.PrinterSettings.PrintToFile = true;
+                    printDocument1.PrinterSettings.PrintFileName = saveDialog.FileName;
+
+                    printDocument1.Print();
+                }
             }
         }
     }

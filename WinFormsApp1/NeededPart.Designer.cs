@@ -251,7 +251,7 @@
             button2.Name = "button2";
             button2.Size = new Size(89, 80);
             button2.TabIndex = 95;
-            button2.Text = "Submit changes to db";
+            button2.Text = "Submit to archive";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -262,8 +262,9 @@
             button3.Name = "button3";
             button3.Size = new Size(89, 80);
             button3.TabIndex = 96;
-            button3.Text = "Print";
+            button3.Text = "Print a receipt";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label19
             // 
@@ -324,7 +325,7 @@
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
             Name = "NeededPart";
-            Text = "NeededPart";
+            Text = "Save To Archive";
             Load += NeededPart_Load;
             ResumeLayout(false);
             PerformLayout();

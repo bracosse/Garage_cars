@@ -39,7 +39,7 @@
             // 
             BtnEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BtnEmployee.BackColor = Color.Turquoise;
-            BtnEmployee.Location = new Point(228, 38);
+            BtnEmployee.Location = new Point(173, 68);
             BtnEmployee.Name = "BtnEmployee";
             BtnEmployee.Size = new Size(199, 166);
             BtnEmployee.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             BtnCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BtnCustomer.BackColor = Color.Turquoise;
-            BtnCustomer.Location = new Point(433, 38);
+            BtnCustomer.Location = new Point(400, 68);
             BtnCustomer.Name = "BtnCustomer";
             BtnCustomer.Size = new Size(199, 166);
             BtnCustomer.TabIndex = 3;
@@ -63,7 +63,7 @@
             // 
             BtnCar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BtnCar.BackColor = Color.Turquoise;
-            BtnCar.Location = new Point(228, 238);
+            BtnCar.Location = new Point(400, 261);
             BtnCar.Name = "BtnCar";
             BtnCar.Size = new Size(199, 166);
             BtnCar.TabIndex = 4;
@@ -75,7 +75,7 @@
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.Turquoise;
-            button1.Location = new Point(433, 238);
+            button1.Location = new Point(173, 261);
             button1.Name = "button1";
             button1.Size = new Size(199, 166);
             button1.TabIndex = 5;
@@ -87,11 +87,11 @@
             // 
             button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button2.BackColor = Color.Turquoise;
-            button2.Location = new Point(38, 200);
+            button2.Location = new Point(639, 329);
             button2.Name = "button2";
-            button2.Size = new Size(106, 77);
+            button2.Size = new Size(138, 98);
             button2.TabIndex = 6;
-            button2.Text = "Parts needed";
+            button2.Text = "Save to archive";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
@@ -106,7 +106,7 @@
             Controls.Add(BtnCustomer);
             Controls.Add(BtnEmployee);
             Name = "Base";
-            Text = "Base";
+            Text = "Garage Management Application";
             Load += Form1_Load;
             ResumeLayout(false);
         }

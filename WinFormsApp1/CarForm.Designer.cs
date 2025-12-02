@@ -307,7 +307,7 @@
             Controls.Add(Btnaddemp);
             Controls.Add(button5);
             Name = "CarForm";
-            Text = "CarForm";
+            Text = "Car Details Window";
             Load += CarForm_Load;
             ((System.ComponentModel.ISupportInitialize)DtGCar).EndInit();
             ResumeLayout(false);
