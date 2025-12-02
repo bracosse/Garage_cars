@@ -12,6 +12,29 @@ namespace WinFormsApp1
     {
         private readonly string DBConnection = "Data Source=localhost\\sqlexpress;Initial Catalog=GarageDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
+        public int? SearchPart(int partId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DBConnection))
+                {
+                    connection.Open();
+                    string SQLQuery = "select Quantity from SparePart where PartID=@PartID";
+                    using (SqlCommand command = new SqlCommand(SQLQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@PartID", partId);
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                            return Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error searching part: " + e.Message);
+            }
+            return null;
+        }
 
         public void AddToArchive(Archive Arc)
         {
@@ -42,6 +65,28 @@ namespace WinFormsApp1
             catch (Exception e)
             {
                 MessageBox.Show("Error Add " + e);
+            }
+        }
+
+        public void UpdateQuality(int partId, int newQuantity)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DBConnection))
+                {
+                    connection.Open();
+                    string SQLQuery = "update SparePart set Quantity=@Quantity where PartID=@PartID";
+                    using (SqlCommand command = new SqlCommand(SQLQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@Quantity", newQuantity);
+                        command.Parameters.AddWithValue("@PartID", partId);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error updating part: " + e.Message);
             }
         }
     }

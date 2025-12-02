@@ -233,6 +233,33 @@ namespace WinFormsApp1
                 MessageBox.Show("this is "+ e);
             }
         }
+
+        public void Quantity_Change()
+        {
+            try
+            {
+                var rep = new ArcHiveRep();
+                int partId = Convert.ToInt32(comboBox2.SelectedValue);
+                int quantityUsed = Convert.ToInt32(comboBox3.SelectedItem);
+
+                int? currentQty = rep.SearchPart(partId);
+
+                int newQty = currentQty.Value - quantityUsed;
+
+                if (newQty < 0)
+                {
+                    MessageBox.Show("Not enough stock!");
+                    return;
+                }
+
+                rep.UpdateQuality(partId, newQty);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception: " + e.Message);
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1 || comboBox3.SelectedIndex == -1 || comboBox4.SelectedIndex == -1 || HandBox.Text == "")
@@ -252,8 +279,8 @@ namespace WinFormsApp1
             }
             if (DLR == DialogResult.Yes)
             {
-                
                 SaveToArchive();
+                Quantity_Change();
                 RemoveCar();
                 FillComboboxcar();
                 MessageBox.Show("done");

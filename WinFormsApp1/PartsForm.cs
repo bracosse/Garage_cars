@@ -129,7 +129,7 @@ namespace WinFormsApp1
             }
 
 
-            part.PartID = int.Parse(comboBox1.Text);
+           // part.PartID = int.Parse(comboBox1.Text);
             part.PartName = this.Namebox.Text;
             part.PartProvider = this.ProviderBox.Text;
             part.Quantity = int.Parse(QtyBoX.Text);
